@@ -395,7 +395,7 @@ describe('GET /clients/1', () => {
 describe('GET /clients', () => {
   beforeEach((done) => {
     const clients = [
-      { id: 1, name: 'Client A', notes: 'Hello world' },
+      { name: 'Client A', notes: 'Hello world' },
       { name: 'Client B' },
       { name: 'Client C' },
       { name: 'Client D' },
