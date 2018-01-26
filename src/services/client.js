@@ -65,10 +65,16 @@ const list = (req, res, next) => {
     attributes = req.query.attributes.split(',');
   }
 
+  const where = {
+    archived: req.query.archived || false,
+  };
+
+  if (req.query.search) {
+    where.name = { [Op.like]: `%${req.query.search}%` };
+  }
+
   Client.findAndCountAll({
-    where: {
-      archived: req.query.archived || false,
-    },
+    where,
     attributes: attributes || ['id', 'name'],
     limit: req.query.limit || 10,
     offset: req.query.offset || 0,

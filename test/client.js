@@ -464,7 +464,7 @@ describe('GET /clients', () => {
 
   it('filters by name searching', (done) => {
     request(app)
-      .get('/clients/?name=O')
+      .get('/clients/?search=O')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .end((err, result) => {
