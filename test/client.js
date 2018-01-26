@@ -30,10 +30,10 @@ beforeEach((done) => {
   // db.Client.truncate().finally(() => { done(); });
 });
 
-describe.only('POST /clients', () => {
+describe('POST /clients', () => {
   beforeEach((done) => {
     // Create a client so that we can test duplicate id/name.
-    const body = { id: 1, name: 'Existing Client' };
+    const body = { id: 100, name: 'Existing Client' };
 
     request(app)
       .post('/clients')
@@ -98,8 +98,8 @@ describe.only('POST /clients', () => {
   });
 
   it('prevents duplicate id', (done) => {
-    const body = { id: 1, name: 'New Client' };
-    const expected = { error: 'Client id (1) is already in use.' };
+    const body = { id: 100, name: 'New Client' };
+    const expected = { error: 'Client id (100) is already in use.' };
 
     request(app)
       .post('/clients')
