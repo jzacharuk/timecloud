@@ -3,6 +3,8 @@ node_js:
   - "lts/*"
 services:
   - postgresql
+addons:
+  postgresql: "9.6"
 before_script:
   - psql -U postgres -c "create database timecloud;"
   - node_modules/.bin/sequelize db:migrate --url "postgres://postgres:@localhost/timecloud"
