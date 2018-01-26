@@ -57,6 +57,7 @@ const update = (req, res, next) => {
 
 const list = (req, res, next) => {
   const { Client } = req.db;
+  const { Op } = req.db.Sequelize;
   console.log('Client', Client);
 
 
