@@ -23,13 +23,17 @@ const db = models.init(config);
 const app = appInitializer.createApp({}, db);
 
 beforeEach((done) => {
-  db.Client.truncate().finally(() => { done(); });
+  db.query('TRUNCATE TABLE Clients RESTART IDENTITY').spread((results, metadata) => {
+    done();
+  // Results will be an empty array and metadata will contain the number of affected rows.
+  });
+  // db.Client.truncate().finally(() => { done(); });
 });
 
 describe.only('POST /clients', () => {
   beforeEach((done) => {
     // Create a client so that we can test duplicate id/name.
-    const body = { id: 100, name: 'Existing Client' };
+    const body = { id: 1, name: 'Existing Client' };
 
     request(app)
       .post('/clients')
