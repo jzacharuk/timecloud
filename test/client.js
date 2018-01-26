@@ -23,7 +23,7 @@ const db = models.init(config);
 const app = appInitializer.createApp({}, db);
 
 beforeEach((done) => {
-  db.query('TRUNCATE TABLE Clients RESTART IDENTITY').spread((results, metadata) => {
+  db.sequelize.query('TRUNCATE TABLE Clients RESTART IDENTITY').spread((results, metadata) => {
     done();
   // Results will be an empty array and metadata will contain the number of affected rows.
   });
