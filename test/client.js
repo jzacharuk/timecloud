@@ -103,6 +103,7 @@ describe.only('POST /clients', () => {
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .end((err, result) => {
+        expect(result.body.error).to.not.exist;
         expect(result.statusCode).to.equal(400);
         expect(result.body).to.include(expected);
         done();
