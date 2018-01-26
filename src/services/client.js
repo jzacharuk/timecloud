@@ -57,6 +57,8 @@ const update = (req, res, next) => {
 
 const list = (req, res, next) => {
   const { Client } = req.db;
+  console.log('Client', Client);
+
 
   let attributes;
   if (req.query.attributes) {
