@@ -26,7 +26,7 @@ beforeEach((done) => {
   db.Client.truncate().finally(() => { done(); });
 });
 
-describe('POST /clients', () => {
+describe.only('POST /clients', () => {
   beforeEach((done) => {
     // Create a client so that we can test duplicate id/name.
     const body = { id: 1, name: 'Existing Client' };
@@ -387,7 +387,7 @@ describe('GET /clients/1', () => {
 });
 
 
-describe.only('GET /clients', () => {
+describe('GET /clients', () => {
   beforeEach((done) => {
     const clients = [
       { id: 1, name: 'Client A', notes: 'Hello world' },
