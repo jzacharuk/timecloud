@@ -4,7 +4,7 @@
   "description": "Open source time tracking server.",
   "main": "index.js",
   "scripts": {
-    "test": "nyc mocha",
+    "test": "nyc mocha --exit",
     "test:watch": "mocha --watch"
   },
   "repository": {
