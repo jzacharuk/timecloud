@@ -9,3 +9,5 @@ before_script:
   - psql -U postgres -c "create database timecloud;"
   - node_modules/.bin/sequelize db:migrate --url "postgres://postgres:@localhost/timecloud"
   - psql -U postgres -d timecloud -c "select * from \"Clients\";"
+script:
+  - npm run coverage
